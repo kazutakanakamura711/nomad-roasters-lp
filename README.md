@@ -12,10 +12,23 @@ Figma Makeの仕様をもとに制作した、東京のスペシャルティコ�
 
 ## 開発
 
+Node.jsは `.nvmrc` に指定した `24.22.1`、npmは `11.19.1` を使用します。
+`nvm` を導入済みの場合は、次の手順で指定バージョンをインストール・使用します。
+
 ```sh
-npm install
+nvm install
+nvm use
+npm ci
 npm run dev
 ```
+
+Node.jsを更新する場合は `.nvmrc` と `package.json` の `engines.node` を更新してください。
+npmも更新する場合は `packageManager` と `engines.npm` を揃えます。
+更新後は `npm ci`、`npm audit`、`npm run validate`、`npm run test:e2e` を確認してください。
+
+VercelのNode.js設定は `24.x` を使用します。マイナー・パッチ更新はVercelが管理し、
+ローカル用の `.nvmrc` とは別に扱います。
+詳細は [VercelのNode.jsバージョン管理](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions) を参照してください。
 
 ## コマンド
 
